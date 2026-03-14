@@ -1,0 +1,502 @@
+/* Professional Images and Visual Elements */
+
+/* Logo Styling */
+.logo-image {
+  width: 200px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 800;
+  font-size: 1.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--shadow-md);
+}
+
+.logo-image::before {
+  content: 'AmandeeoLoan';
+  letter-spacing: -0.5px;
+}
+
+/* Hero Background Image */
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(circle at 20% 80%, rgba(66, 153, 225, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(72, 187, 120, 0.1) 0%, transparent 50%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+  z-index: 0;
+}
+
+.hero-illustration {
+  width: 100%;
+  max-width: 500px;
+  height: 400px;
+  background:
+    radial-gradient(circle at 30% 30%, var(--accent-color) 0%, transparent 70%),
+    radial-gradient(circle at 70% 70%, var(--secondary-color) 0%, transparent 70%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+  border-radius: var(--radius-xl);
+  position: relative;
+  box-shadow: var(--shadow-xl);
+}
+
+.hero-illustration::before {
+  content: '';
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  width: 60%;
+  height: 60%;
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 100%);
+  border-radius: 50%;
+  transform: rotate(-15deg);
+}
+
+.hero-illustration::after {
+  content: '';
+  position: absolute;
+  bottom: 15%;
+  right: 15%;
+  width: 40%;
+  height: 40%;
+  background: linear-gradient(-45deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 100%);
+  border-radius: 50%;
+  transform: rotate(25deg);
+}
+
+/* Feature Icons with Background Images */
+.feature-icon-bg {
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-icon-bg::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 0deg, var(--accent-color), var(--secondary-color), var(--primary-color), var(--accent-color));
+  animation: rotate 8s linear infinite;
+  opacity: 0.1;
+  z-index: 0;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Testimonial Avatars */
+.testimonial-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent-color) 0%, var(--secondary-color) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 1.25rem;
+  box-shadow: var(--shadow-md);
+  border: 3px solid white;
+}
+
+/* Dashboard Chart Backgrounds */
+.chart-background {
+  background:
+    radial-gradient(circle at 30% 30%, rgba(66, 153, 225, 0.05) 0%, transparent 50%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.2) 100%);
+  border-radius: var(--radius-lg);
+}
+
+/* Status Icons */
+.status-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.status-icon.active {
+  background: linear-gradient(135deg, var(--success-color) 0%, #38a169 100%);
+  color: white;
+}
+
+.status-icon.overdue {
+  background: linear-gradient(135deg, var(--error-color) 0%, #c53030 100%);
+  color: white;
+}
+
+.status-icon.paid {
+  background: linear-gradient(135deg, var(--warning-color) 0%, #dd6b20 100%);
+  color: white;
+}
+
+/* Payment Method Icons */
+.payment-method-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.payment-method-icon.cash {
+  background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+  color: white;
+}
+
+.payment-method-icon.check {
+  background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%);
+  color: white;
+}
+
+.payment-method-icon.transfer {
+  background: linear-gradient(135deg, #ed8936 0%, #dd6b20 100%);
+  color: white;
+}
+
+.payment-method-icon.card {
+  background: linear-gradient(135deg, #9f7aea 0%, #805ad5 100%);
+  color: white;
+}
+
+/* Background Patterns */
+.pattern-dots {
+  background-image:
+    radial-gradient(circle, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.pattern-grid {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.pattern-waves {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.05'%3E%3Cpath d='M30 30c0-11.046-8.954-20-20-20s-20 8.954-20 20 8.954 20 20 20 20-8.954 20-20zm15 0c0-11.046-8.954-20-20-20s-20 8.954-20 20 8.954 20 20 20 20-8.954 20-20z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Loading States */
+.image-loading {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Professional Photo Placeholders */
+.professional-photo {
+  width: 100%;
+  height: 300px;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+}
+
+.professional-photo::before {
+  content: 'Professional Photography';
+  opacity: 0.9;
+}
+
+.professional-photo::after {
+  content: '\A Professional financial services imagery would be displayed here';
+  white-space: pre;
+  font-size: 0.9rem;
+  opacity: 0.7;
+  margin-top: 0.5rem;
+}
+
+/* Icon Backgrounds */
+.icon-bg-primary {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+}
+
+.icon-bg-secondary {
+  background: linear-gradient(135deg, var(--secondary-color) 0%, #38a169 100%);
+}
+
+.icon-bg-accent {
+  background: linear-gradient(135deg, var(--accent-color) 0%, #3182ce 100%);
+}
+
+.icon-bg-success {
+  background: linear-gradient(135deg, var(--success-color) 0%, #38a169 100%);
+}
+
+.icon-bg-warning {
+  background: linear-gradient(135deg, var(--warning-color) 0%, #dd6b20 100%);
+}
+
+.icon-bg-error {
+  background: linear-gradient(135deg, var(--error-color) 0%, #c53030 100%);
+}
+
+/* Background Patterns and Textures */
+body {
+  background-attachment: fixed;
+}
+
+.main-content {
+  background:
+    radial-gradient(circle at 20% 80%, rgba(66, 153, 225, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(72, 187, 120, 0.03) 0%, transparent 50%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.2) 100%);
+  background-attachment: local;
+}
+
+.dashboard-grid {
+  background:
+    radial-gradient(circle at 30% 70%, rgba(26, 54, 93, 0.02) 0%, transparent 50%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.1) 100%);
+}
+
+/* Professional Imagery Placeholders */
+.hero-visual {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-visual::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    linear-gradient(45deg, rgba(66, 153, 225, 0.1) 0%, rgba(72, 187, 120, 0.1) 100%),
+    url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.02'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  z-index: 0;
+}
+
+/* Financial Chart Backgrounds */
+.financial-chart-bg {
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.4) 100%),
+    radial-gradient(circle at 50% 50%, rgba(66, 153, 225, 0.05) 0%, transparent 70%);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Professional Avatar Placeholders */
+.avatar-professional {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  border: 3px solid white;
+  box-shadow: var(--shadow-md);
+  position: relative;
+}
+
+.avatar-professional::before {
+  content: '';
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 30%;
+  height: 30%;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: rotate(45deg);
+}
+
+.avatar-professional::after {
+  content: '';
+  position: absolute;
+  bottom: 15%;
+  right: 15%;
+  width: 20%;
+  height: 20%;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: rotate(-30deg);
+}
+
+/* Success/Error State Images */
+.status-success-image {
+  background: linear-gradient(135deg, var(--success-color) 0%, #38a169 100%);
+  position: relative;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+.status-success-image::before {
+  content: '✓';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.status-error-image {
+  background: linear-gradient(135deg, var(--error-color) 0%, #c53030 100%);
+  position: relative;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+.status-error-image::before {
+  content: '✗';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.status-warning {
+  background: linear-gradient(135deg, var(--warning-color) 0%, #dd6b20 100%);
+  position: relative;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+.status-warning::before {
+  content: '!';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.status-info {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+  position: relative;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+.status-info::before {
+  content: 'i';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  font-style: italic;
+}
+
+/* Loading Animation for Images */
+@keyframes imagePulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.image-loading {
+  animation: imagePulse 2s ease-in-out infinite;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+}
+
+/* Professional Document Icons */
+.document-icon {
+  width: 60px;
+  height: 75px;
+  background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e0 100%);
+  border-radius: 4px 4px 8px 8px;
+  position: relative;
+  box-shadow: var(--shadow-sm);
+}
+
+.document-icon::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  right: 8px;
+  height: 3px;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+}
+
+.document-icon::after {
+  content: '';
+  position: absolute;
+  top: 18px;
+  left: 8px;
+  right: 8px;
+  height: 3px;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+}
+
+/* Money/Currency Visual Elements */
+.currency-symbol {
+  font-size: 1.5rem;
+  color: var(--secondary-color);
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+.amount-visual {
+  background: linear-gradient(135deg, var(--secondary-color) 0%, #38a169 100%);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  box-shadow: var(--shadow-sm);
+}
+
+.amount-visual::before {
+  content: '$';
+  margin-right: 0.25rem;
+  opacity: 0.9;
+}
