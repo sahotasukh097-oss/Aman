@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loan Details - Amandeep Loans</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <a href="index.html" class="logo">
+        <div class="logo-image"></div>
+        <h1>Amandeep Loans</h1>
+      </a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="add.html">Apply for Loan</a>
+        <a href="calculator.html">Calculator</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="history.html">History</a>
+        <a href="profile.html">Profile</a>
+        <a href="reports.html">Reports</a>
+        <a href="settings.html">Settings</a>
+        <a href="help.html">Help</a>
+        <a href="signin.html">Sign In</a>
+        <a href="signup.html">Sign Up</a>
+      </nav>
+      <div class="header-actions">
+        <button class="btn-primary" onclick="window.location.href='index.html'">
+          <i class="fas fa-home"></i> Back to Dashboard
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <section class="page-header detail-hero">
+    <div class="container">
+      <div class="page-header-content">
+        <div class="hero-badge">
+          <i class="fas fa-file-invoice-dollar"></i>
+          <span>Loan Details</span>
+        </div>
+        <h1>Loan Details & Management</h1>
+        <p>Get comprehensive insights into your loan performance, payment history, and remaining balance. Make informed decisions with detailed analytics and payment tracking.</p>
+        <div class="detail-features">
+          <div class="feature">
+            <i class="fas fa-chart-line"></i>
+            <span>Payment Analytics</span>
+          </div>
+          <div class="feature">
+            <i class="fas fa-calendar-alt"></i>
+            <span>Payment Schedule</span>
+          </div>
+          <div class="feature">
+            <i class="fas fa-edit"></i>
+            <span>Manage Loan</span>
+          </div>
+        </div>
+        <div class="breadcrumb">
+          <a href="index.html">Home</a> <i class="fas fa-chevron-right"></i> <span>Loan Details</span>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="detail-preview">
+          <div class="loan-summary">
+            <div class="loan-amount">
+              <div class="amount-label">Loan Amount</div>
+              <div class="amount-value">$45,230</div>
+            </div>
+            <div class="loan-progress">
+              <div class="progress-label">Paid Off</div>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 68%"></div>
+              </div>
+              <div class="progress-text">$30,850 / $45,230</div>
+            </div>
+          </div>
+          <div class="loan-metrics">
+            <div class="metric">
+              <div class="metric-value">24</div>
+              <div class="metric-label">Payments Made</div>
+            </div>
+            <div class="metric">
+              <div class="metric-value">12</div>
+              <div class="metric-label">Remaining</div>
+            </div>
+            <div class="metric">
+              <div class="metric-value">$1,266</div>
+              <div class="metric-label">Monthly Payment</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Loan Details Content -->
+  <main class="main-content">
+    <div class="container">
+      <div id="loan-details" class="loan-details-container">
+        <!-- Action Buttons -->
+        <div class="details-actions">
+          <button class="btn-secondary" onclick="window.location.href='index.html'">
+            <i class="fas fa-arrow-left"></i> Back to Loans
+          </button>
+          <div class="action-buttons">
+            <button id="edit-loan-btn" class="btn-primary">
+              <i class="fas fa-edit"></i> Edit Loan
+            </button>
+            <button id="delete-loan-btn" class="btn-error">
+              <i class="fas fa-trash"></i> Delete Loan
+            </button>
+          </div>
+        </div>
+
+        <!-- Loan Information Card -->
+        <div class="loan-info-card">
+          <div class="card-header">
+            <div class="card-icon">
+              <i class="fas fa-file-invoice-dollar"></i>
+            </div>
+            <div>
+              <h2 id="loan-title">Loan Information</h2>
+              <p>Complete details and current status</p>
+            </div>
+          </div>
+          <div id="loan-info" class="loan-info-content">
+            <!-- Loan details will be populated by JavaScript -->
+          </div>
+        </div>
+
+        <!-- Edit Form (Hidden by default) -->
+        <div id="edit-form" class="edit-form-container" style="display: none;">
+          <div class="form-header">
+            <div class="form-icon">
+              <i class="fas fa-edit"></i>
+            </div>
+            <h3>Edit Loan Information</h3>
+            <p>Update loan details as needed</p>
+          </div>
+
+          <form id="edit-loan-form" class="edit-form">
+            <div class="form-section">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="edit-borrowerName">
+                    <i class="fas fa-user-circle"></i> Borrower Name *
+                  </label>
+                  <input type="text" id="edit-borrowerName" required>
+                </div>
+                <div class="form-group">
+                  <label for="edit-amount">
+                    <i class="fas fa-dollar-sign"></i> Loan Amount *
+                  </label>
+                  <input type="number" id="edit-amount" required>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="edit-interestRate">
+                    <i class="fas fa-percent"></i> Interest Rate (%) *
+                  </label>
+                  <input type="number" step="0.01" id="edit-interestRate" required>
+                </div>
+                <div class="form-group">
+                  <label for="edit-termMonths">
+                    <i class="fas fa-calendar-alt"></i> Term (Months) *
+                  </label>
+                  <input type="number" id="edit-termMonths" required>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="edit-startDate">
+                    <i class="fas fa-calendar-day"></i> Start Date *
+                  </label>
+                  <input type="date" id="edit-startDate" required>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button type="button" id="cancel-edit-btn" class="btn-secondary">
+                <i class="fas fa-times"></i> Cancel
+              </button>
+              <button type="submit" class="btn-primary">
+                <i class="fas fa-save"></i> Save Changes
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Payments Section -->
+        <div class="payments-section">
+          <div class="section-header">
+            <div class="section-icon">
+              <i class="fas fa-credit-card"></i>
+            </div>
+            <div>
+              <h3>Payment History</h3>
+              <p>Track all payments made on this loan</p>
+            </div>
+          </div>
+
+          <div class="payments-list-container">
+            <ul id="payments-list" class="payments-list">
+              <!-- Payments will be populated by JavaScript -->
+            </ul>
+          </div>
+
+          <!-- Add Payment Form -->
+          <div class="add-payment-section">
+            <div class="add-payment-header">
+              <h4><i class="fas fa-plus-circle"></i> Add New Payment</h4>
+              <p>Record a payment made on this loan</p>
+            </div>
+
+            <div id="add-payment" class="add-payment-form">
+              <div class="payment-inputs">
+                <div class="form-group">
+                  <label for="paymentAmount">
+                    <i class="fas fa-dollar-sign"></i> Payment Amount *
+                  </label>
+                  <input type="number" id="paymentAmount" placeholder="Enter amount" step="0.01" required>
+                </div>
+                <div class="form-group">
+                  <label for="paymentDate">
+                    <i class="fas fa-calendar-day"></i> Payment Date *
+                  </label>
+                  <input type="date" id="paymentDate" required>
+                </div>
+              </div>
+              <button id="add-payment-btn" class="btn-primary">
+                <i class="fas fa-plus"></i> Add Payment
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-logo">
+            <i class="fas fa-university"></i>
+            <h3>Amandeep Loans</h3>
+          </div>
+          <p>Professional loan management solutions for individuals and businesses. Secure, reliable, and user-friendly financial tools.</p>
+          <div class="contact-info">
+            <div class="contact-item">
+              <i class="fas fa-phone"></i>
+              <span>+1 (555) 123-4567</span>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-envelope"></i>
+              <span>support@amandeepLoans.com</span>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>123 Finance Street, NY 10001</span>
+            </div>
+          </div>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h4>Products & Services</h4>
+          <ul>
+            <li><a href="add.html">Personal Loans</a></li>
+            <li><a href="add.html">Business Loans</a></li>
+            <li><a href="calculator.html">Loan Calculator</a></li>
+            <li><a href="dashboard.html">Payment Tracker</a></li>
+            <li><a href="reports.html">Financial Reports</a></li>
+            <li><a href="settings.html">Account Settings</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Support & Resources</h4>
+          <ul>
+            <li><a href="help.html">Help Center</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="profile.html">User Profile</a></li>
+            <li><a href="history.html">Transaction History</a></li>
+            <li><a href="#features">Features Guide</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Legal & Security</h4>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Security Center</a></li>
+            <li><a href="#">Compliance</a></li>
+            <li><a href="#">Cookie Policy</a></li>
+            <li><a href="#">GDPR Compliance</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-badges">
+          <span class="badge-modern"><i class="fas fa-shield-alt"></i> SSL Secured</span>
+          <span class="badge-modern"><i class="fas fa-lock"></i> Bank-Level Security</span>
+          <span class="badge-modern"><i class="fas fa-award"></i> Trusted by 10,000+ Users</span>
+        </div>
+        <div class="footer-copyright">
+          <p>&copy; 2026 Amandeep Loans. All rights reserved. | Made with <i class="fas fa-heart text-gradient"></i> for financial excellence</p>
+          <div class="footer-links">
+            <a href="#">Sitemap</a> |
+            <a href="#">Accessibility</a> |
+            <a href="#">Careers</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div id="notification" class="notification"></div>
+  <script src="script.js"></script>
+</body>
+</html>

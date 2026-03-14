@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Help & Support - Amandeep Loans</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <a href="index.html" class="logo">
+        <div class="logo-image"></div>
+        <h1>Amandeep Loans</h1>
+      </a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="add.html">Apply for Loan</a>
+        <a href="calculator.html">Calculator</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="history.html">History</a>
+        <a href="profile.html">Profile</a>
+        <a href="reports.html">Reports</a>
+        <a href="settings.html">Settings</a>
+        <a href="help.html" class="active">Help</a>
+        <a href="signin.html">Sign In</a>
+        <a href="signup.html">Sign Up</a>
+      </nav>
+      <div class="header-actions">
+        <button class="btn-primary" onclick="window.location.href='add.html'">
+          <i class="fas fa-plus"></i> New Loan
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <section class="page-header help-hero">
+    <div class="container">
+      <div class="page-header-content">
+        <div class="hero-badge">
+          <i class="fas fa-question-circle"></i>
+          <span>24/7 Support</span>
+        </div>
+        <h1>Help & Support Center</h1>
+        <p>Get instant answers to your questions with our comprehensive help center. From loan applications to payment tracking, we're here to help you every step of the way.</p>
+        <div class="help-features">
+          <div class="feature">
+            <i class="fas fa-search"></i>
+            <span>Quick Search</span>
+          </div>
+          <div class="feature">
+            <i class="fas fa-headset"></i>
+            <span>Live Support</span>
+          </div>
+          <div class="feature">
+            <i class="fas fa-book"></i>
+            <span>Knowledge Base</span>
+          </div>
+        </div>
+        <div class="breadcrumb">
+          <a href="index.html">Home</a> <i class="fas fa-chevron-right"></i> <span>Help & Support</span>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="help-preview">
+          <div class="support-card">
+            <div class="support-icon">
+              <i class="fas fa-comments"></i>
+            </div>
+            <div class="support-info">
+              <div class="support-title">Live Chat Support</div>
+              <div class="support-desc">Get instant help from our experts</div>
+            </div>
+            <div class="support-status">
+              <span class="status-online">Online</span>
+            </div>
+          </div>
+          <div class="help-stats">
+            <div class="stat">
+              <div class="stat-number">24/7</div>
+              <div class="stat-label">Available</div>
+            </div>
+            <div class="stat">
+              <div class="stat-number">&lt;2min</div>
+              <div class="stat-label">Response Time</div>
+            </div>
+            <div class="stat">
+              <div class="stat-number">98%</div>
+              <div class="stat-label">Satisfaction</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Help Content -->
+  <main class="main-content">
+    <div class="container">
+      <!-- Quick Actions -->
+      <div class="help-quick-actions">
+        <div class="action-card">
+          <div class="action-icon">
+            <i class="fas fa-search"></i>
+          </div>
+          <h3>Search Help</h3>
+          <p>Search our knowledge base for quick answers</p>
+          <div class="search-box">
+            <input type="text" id="help-search" placeholder="Search for help...">
+            <button onclick="searchHelp()">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="action-card">
+          <div class="action-icon">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <h3>Contact Support</h3>
+          <p>Get in touch with our support team</p>
+          <button class="btn-primary" onclick="showContactForm()">
+            <i class="fas fa-envelope"></i> Contact Us
+          </button>
+        </div>
+
+        <div class="action-card">
+          <div class="action-icon">
+            <i class="fas fa-phone"></i>
+          </div>
+          <h3>Call Us</h3>
+          <p>Speak with a representative</p>
+          <div class="contact-info">
+            <strong>1-800-LOAN-HELP</strong>
+            <small>Mon-Fri 9AM-6PM EST</small>
+          </div>
+        </div>
+
+        <div class="action-card">
+          <div class="action-icon">
+            <i class="fas fa-comments"></i>
+          </div>
+          <h3>Live Chat</h3>
+          <p>Chat with our support team</p>
+          <button class="btn-secondary" onclick="startLiveChat()">
+            <i class="fas fa-comments"></i> Start Chat
+          </button>
+        </div>
+      </div>
+
+      <!-- FAQ Section -->
+      <div class="help-section">
+        <div class="section-header">
+          <h2><i class="fas fa-question-circle"></i> Frequently Asked Questions</h2>
+          <p>Quick answers to the most common questions</p>
+        </div>
+
+        <div class="faq-accordion">
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+              <h3>How do I apply for a loan?</h3>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>To apply for a loan, click the "Apply for Loan" button from the home page or navigation menu. Fill out the loan application form with your personal information, loan amount, interest rate, and term. You can also use our loan calculator to determine the right loan terms for your needs.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+              <h3>What documents do I need to apply?</h3>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>For loan applications, you'll typically need:</p>
+              <ul>
+                <li>Valid government-issued ID (driver's license or passport)</li>
+                <li>Proof of income (pay stubs, tax returns, or bank statements)</li>
+                <li>Proof of address (utility bill or lease agreement)</li>
+                <li>Bank account information for loan disbursement</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+              <h3>How is interest calculated?</h3>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>Interest is calculated using the formula: Principal × Rate × Time. For example, a $10,000 loan at 5% interest for 1 year would accrue $500 in interest. Our loan calculator can help you understand the total cost of your loan including interest and fees.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+              <h3>How do I make loan payments?</h3>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>You can make loan payments through:</p>
+              <ul>
+                <li>Online payment portal in your dashboard</li>
+                <li>Bank transfer to the account provided</li>
+                <li>Automatic payments (set up in settings)</li>
+                <li>Mail (check or money order)</li>
+              </ul>
+              <p>All payments are recorded in your loan history and dashboard.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+              <h3>What happens if I miss a payment?</h3>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>If you miss a payment, you'll receive a notification via email and SMS (if enabled). Late fees may apply after the grace period. Contact us immediately if you're having trouble making a payment - we may be able to work out a payment plan or extension.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+              <h3>How do I view my loan history?</h3>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>You can view your complete loan history by clicking on the "History" link in the navigation menu. This page shows all your loans, their status, payment history, and allows you to export your data. You can filter by status, year, or search by borrower name.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+              <h3>Is my data secure?</h3>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>Yes, your data security is our top priority. We use bank-level encryption (SSL/TLS) to protect all data transmission. Your personal and financial information is stored securely and never shared with third parties without your consent. We comply with all relevant data protection regulations.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+              <h3>How do I update my profile information?</h3>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>You can update your profile information by clicking on the "Profile" link in the navigation menu. From there, you can edit your personal details, contact information, and preferences. Changes are saved automatically to your local browser storage.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+              <h3>How do I use the loan calculator?</h3>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>The loan calculator helps you understand loan costs before applying. Enter the loan amount, interest rate, and term length. The calculator will show your monthly payment, total interest, and total cost. You can also view an amortization schedule and export the data for your records.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+              <h3>Can I export my loan data?</h3>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>Yes, you can export your loan data in several ways:</p>
+              <ul>
+                <li>From the History page: Export complete loan history as CSV</li>
+                <li>From the Reports page: Generate detailed financial reports</li>
+                <li>From the Calculator: Export amortization schedules</li>
+                <li>From individual loan details: Print or save loan information</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- User Guides -->
+      <div class="help-section">
+        <div class="section-header">
+          <h2><i class="fas fa-book"></i> User Guides & Tutorials</h2>
+          <p>Step-by-step guides to help you get the most out of our platform</p>
+        </div>
+
+        <div class="guides-grid">
+          <div class="guide-card">
+            <div class="guide-icon">
+              <i class="fas fa-plus-circle"></i>
+            </div>
+            <h3>Getting Started</h3>
+            <p>Learn the basics of using our loan management system</p>
+            <a href="#" class="guide-link">Read Guide <i class="fas fa-arrow-right"></i></a>
+          </div>
+
+          <div class="guide-card">
+            <div class="guide-icon">
+              <i class="fas fa-calculator"></i>
+            </div>
+            <h3>Using the Calculator</h3>
+            <p>Master the loan calculator and amortization schedules</p>
+            <a href="#" class="guide-link">Read Guide <i class="fas fa-arrow-right"></i></a>
+          </div>
+
+          <div class="guide-card">
+            <div class="guide-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <h3>Understanding Reports</h3>
+            <p>How to read and interpret your financial reports</p>
+            <a href="#" class="guide-link">Read Guide <i class="fas fa-arrow-right"></i></a>
+          </div>
+
+          <div class="guide-card">
+            <div class="guide-icon">
+              <i class="fas fa-credit-card"></i>
+            </div>
+            <h3>Making Payments</h3>
+            <p>All the ways you can make loan payments</p>
+            <a href="#" class="guide-link">Read Guide <i class="fas fa-arrow-right"></i></a>
+          </div>
+
+          <div class="guide-card">
+            <div class="guide-icon">
+              <i class="fas fa-cog"></i>
+            </div>
+            <h3>Customizing Settings</h3>
+            <p>Personalize your experience and preferences</p>
+            <a href="#" class="guide-link">Read Guide <i class="fas fa-arrow-right"></i></a>
+          </div>
+
+          <div class="guide-card">
+            <div class="guide-icon">
+              <i class="fas fa-shield-alt"></i>
+            </div>
+            <h3>Security Best Practices</h3>
+            <p>Keep your account and data secure</p>
+            <a href="#" class="guide-link">Read Guide <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Form Modal -->
+      <div id="contact-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3>Contact Support</h3>
+            <button class="modal-close" onclick="closeContactModal()">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="contact-form" class="contact-form">
+              <div class="form-group">
+                <label for="contact-name">Name</label>
+                <input type="text" id="contact-name" name="name" required>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-email">Email</label>
+                <input type="email" id="contact-email" name="email" required>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-subject">Subject</label>
+                <select id="contact-subject" name="subject" required>
+                  <option value="">Select a subject</option>
+                  <option value="technical">Technical Issue</option>
+                  <option value="billing">Billing Question</option>
+                  <option value="loan">Loan Application</option>
+                  <option value="payment">Payment Issue</option>
+                  <option value="feature">Feature Request</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-message">Message</label>
+                <textarea id="contact-message" name="message" rows="5" required placeholder="Describe your issue or question..."></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-priority">Priority</label>
+                <select id="contact-priority" name="priority">
+                  <option value="normal">Normal</option>
+                  <option value="high">High</option>
+                  <option value="urgent">Urgent</option>
+                </select>
+              </div>
+
+              <button type="submit" class="btn-primary">
+                <i class="fas fa-paper-plane"></i> Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- System Status -->
+      <div class="help-section">
+        <div class="section-header">
+          <h2><i class="fas fa-server"></i> System Status</h2>
+          <p>Current status of our services and systems</p>
+        </div>
+
+        <div class="status-grid">
+          <div class="status-item">
+            <div class="status-indicator operational"></div>
+            <div class="status-info">
+              <h4>Loan Application System</h4>
+              <p>All systems operational</p>
+            </div>
+          </div>
+
+          <div class="status-item">
+            <div class="status-indicator operational"></div>
+            <div class="status-info">
+              <h4>Payment Processing</h4>
+              <p>All systems operational</p>
+            </div>
+          </div>
+
+          <div class="status-item">
+            <div class="status-indicator operational"></div>
+            <div class="status-info">
+              <h4>Dashboard & Reports</h4>
+              <p>All systems operational</p>
+            </div>
+          </div>
+
+          <div class="status-item">
+            <div class="status-indicator operational"></div>
+            <div class="status-info">
+              <h4>Customer Support</h4>
+              <p>All systems operational</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-logo">
+            <i class="fas fa-university"></i>
+            <h3>Amandeep Loans</h3>
+          </div>
+          <p>Professional loan management solutions for individuals and businesses. Secure, reliable, and user-friendly financial tools.</p>
+          <div class="contact-info">
+            <div class="contact-item">
+              <i class="fas fa-phone"></i>
+              <span>+1 (555) 123-4567</span>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-envelope"></i>
+              <span>support@amandeeoloans.com</span>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>123 Finance Street, NY 10001</span>
+            </div>
+          </div>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h4>Products & Services</h4>
+          <ul>
+            <li><a href="add.html">Personal Loans</a></li>
+            <li><a href="add.html">Business Loans</a></li>
+            <li><a href="calculator.html">Loan Calculator</a></li>
+            <li><a href="dashboard.html">Payment Tracker</a></li>
+            <li><a href="reports.html">Financial Reports</a></li>
+            <li><a href="settings.html">Account Settings</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Support & Resources</h4>
+          <ul>
+            <li><a href="help.html">Help Center</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="profile.html">User Profile</a></li>
+            <li><a href="history.html">Transaction History</a></li>
+            <li><a href="#features">Features Guide</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Legal & Security</h4>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Security Center</a></li>
+            <li><a href="#">Compliance</a></li>
+            <li><a href="#">Cookie Policy</a></li>
+            <li><a href="#">GDPR Compliance</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-badges">
+          <span class="badge-modern"><i class="fas fa-shield-alt"></i> SSL Secured</span>
+          <span class="badge-modern"><i class="fas fa-lock"></i> Bank-Level Security</span>
+          <span class="badge-modern"><i class="fas fa-award"></i> Trusted by 10,000+ Users</span>
+        </div>
+        <div class="footer-copyright">
+          <p>&copy; 2026 Amandeep Loans. All rights reserved. | Made with <i class="fas fa-heart text-gradient"></i> for financial excellence</p>
+          <div class="footer-links">
+            <a href="#">Sitemap</a> |
+            <a href="#">Accessibility</a> |
+            <a href="#">Careers</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div id="notification" class="notification"></div>
+  <script src="help.js"></script>
+</body>
+</html>

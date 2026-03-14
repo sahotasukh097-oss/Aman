@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loan History - Amandeep Loans</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <a href="index.html" class="logo">
+        <div class="logo-image"></div>
+        <h1>Amandeep Loans</h1>
+      </a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="add.html">Apply for Loan</a>
+        <a href="calculator.html">Calculator</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="history.html" class="active">History</a>
+        <a href="profile.html">Profile</a>
+        <a href="reports.html">Reports</a>
+        <a href="settings.html">Settings</a>
+        <a href="help.html">Help</a>
+        <a href="signin.html">Sign In</a>
+        <a href="signup.html">Sign Up</a>
+      </nav>
+      <div class="header-actions">
+        <button class="btn-primary" onclick="window.location.href='add.html'">
+          <i class="fas fa-plus"></i> New Loan
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <section class="page-header history-hero">
+    <div class="container">
+      <div class="page-header-content">
+        <div class="hero-badge">
+          <i class="fas fa-history"></i>
+          <span>Loan Archive</span>
+        </div>
+        <h1>Loan History & Archive</h1>
+        <p>Access your complete loan history, payment records, and financial journey. Track your progress and review past transactions with detailed insights.</p>
+        <div class="history-features">
+          <div class="feature">
+            <i class="fas fa-search"></i>
+            <span>Advanced Search</span>
+          </div>
+          <div class="feature">
+            <i class="fas fa-filter"></i>
+            <span>Smart Filters</span>
+          </div>
+          <div class="feature">
+            <i class="fas fa-download"></i>
+            <span>Export Records</span>
+          </div>
+        </div>
+        <div class="breadcrumb">
+          <a href="index.html">Home</a> <i class="fas fa-chevron-right"></i> <span>History</span>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="history-preview">
+          <div class="timeline-item">
+            <div class="timeline-icon completed">
+              <i class="fas fa-check"></i>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-title">Personal Loan - $25,000</div>
+              <div class="timeline-date">Completed Dec 2023</div>
+              <div class="timeline-amount">$25,000 paid off</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-icon completed">
+              <i class="fas fa-check"></i>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-title">Business Loan - $50,000</div>
+              <div class="timeline-date">Completed Aug 2023</div>
+              <div class="timeline-amount">$50,000 paid off</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-icon active">
+              <i class="fas fa-clock"></i>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-title">Home Loan - $200,000</div>
+              <div class="timeline-date">Active since Jan 2024</div>
+              <div class="timeline-amount">$85,000 remaining</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- History Content -->
+  <main class="main-content">
+    <div class="container">
+      <!-- Filters and Controls -->
+      <div class="history-controls">
+        <div class="filter-group">
+          <label for="status-filter">Filter by Status:</label>
+          <select id="status-filter" onchange="filterHistory()">
+            <option value="all">All Loans</option>
+            <option value="paid">Paid Off</option>
+            <option value="active">Active</option>
+            <option value="overdue">Overdue</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="year-filter">Filter by Year:</label>
+          <select id="year-filter" onchange="filterHistory()">
+            <option value="all">All Years</option>
+            <!-- Years will be populated by JavaScript -->
+          </select>
+        </div>
+
+        <div class="search-group">
+          <input type="text" id="search-input" placeholder="Search by borrower name..." onkeyup="filterHistory()">
+          <button class="btn-secondary" onclick="clearFilters()">
+            <i class="fas fa-times"></i> Clear
+          </button>
+        </div>
+      </div>
+
+      <!-- Statistics Cards -->
+      <div class="stats-overview">
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-check-circle"></i>
+          </div>
+          <div class="stat-content">
+            <h3 id="total-paid-loans">0</h3>
+            <p>Paid Off Loans</p>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-dollar-sign"></i>
+          </div>
+          <div class="stat-content">
+            <h3 id="total-collected">$0</h3>
+            <p>Total Collected</p>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <div class="stat-content">
+            <h3 id="avg-completion">0%</h3>
+            <p>Avg. Completion Rate</p>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-clock"></i>
+          </div>
+          <div class="stat-content">
+            <h3 id="avg-duration">0 days</h3>
+            <p>Avg. Loan Duration</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- History Table -->
+      <div class="history-table-container">
+        <div class="table-header">
+          <h3><i class="fas fa-history"></i> Loan History</h3>
+          <div class="table-actions">
+            <button class="btn-secondary" onclick="exportHistory()">
+              <i class="fas fa-download"></i> Export
+            </button>
+          </div>
+        </div>
+
+        <div class="table-responsive">
+          <table id="history-table" class="data-table">
+            <thead>
+              <tr>
+                <th>Borrower</th>
+                <th>Amount</th>
+                <th>Interest Rate</th>
+                <th>Status</th>
+                <th>Start Date</th>
+                <th>Completion</th>
+                <th>Total Paid</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="history-tbody">
+              <!-- History will be populated by JavaScript -->
+            </tbody>
+          </table>
+        </div>
+
+        <div id="no-results" class="no-results" style="display: none;">
+          <div class="no-results-content">
+            <i class="fas fa-search"></i>
+            <h3>No loans found</h3>
+            <p>Try adjusting your search criteria or filters.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Loan Details Modal -->
+      <div id="loan-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 id="modal-title">Loan Details</h3>
+            <button class="modal-close" onclick="closeModal()">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <div id="modal-body" class="modal-body">
+            <!-- Loan details will be populated here -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-logo">
+            <i class="fas fa-university"></i>
+            <h3>Amandeep Loans</h3>
+          </div>
+          <p>Professional loan management solutions for individuals and businesses. Secure, reliable, and user-friendly.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-logo">
+            <i class="fas fa-university"></i>
+            <h3>Amandeep Loans</h3>
+          </div>
+          <p>Professional loan management solutions for individuals and businesses. Secure, reliable, and user-friendly financial tools.</p>
+          <div class="contact-info">
+            <div class="contact-item">
+              <i class="fas fa-phone"></i>
+              <span>+1 (555) 123-4567</span>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-envelope"></i>
+              <span>support@amandeeoloans.com</span>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>123 Finance Street, NY 10001</span>
+            </div>
+          </div>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h4>Products & Services</h4>
+          <ul>
+            <li><a href="add.html">Personal Loans</a></li>
+            <li><a href="add.html">Business Loans</a></li>
+            <li><a href="calculator.html">Loan Calculator</a></li>
+            <li><a href="dashboard.html">Payment Tracker</a></li>
+            <li><a href="reports.html">Financial Reports</a></li>
+            <li><a href="settings.html">Account Settings</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Support & Resources</h4>
+          <ul>
+            <li><a href="help.html">Help Center</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="profile.html">User Profile</a></li>
+            <li><a href="history.html">Transaction History</a></li>
+            <li><a href="#features">Features Guide</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Legal & Security</h4>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Security Center</a></li>
+            <li><a href="#">Compliance</a></li>
+            <li><a href="#">Cookie Policy</a></li>
+            <li><a href="#">GDPR Compliance</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-badges">
+          <span class="badge-modern"><i class="fas fa-shield-alt"></i> SSL Secured</span>
+          <span class="badge-modern"><i class="fas fa-lock"></i> Bank-Level Security</span>
+          <span class="badge-modern"><i class="fas fa-award"></i> Trusted by 10,000+ Users</span>
+        </div>
+        <div class="footer-copyright">
+          <p>&copy; 2026 Amandeep Loans. All rights reserved. | Made with <i class="fas fa-heart text-gradient"></i> for financial excellence</p>
+          <div class="footer-links">
+            <a href="#">Sitemap</a> |
+            <a href="#">Accessibility</a> |
+            <a href="#">Careers</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div id="notification" class="notification"></div>
+  <script src="history.js"></script>
+</body>
+</html>

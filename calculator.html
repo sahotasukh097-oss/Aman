@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loan Calculator - Amandeep Loans</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <a href="index.html" class="logo">
+        <div class="logo-image"></div>
+        <h1>Amandeep Loans</h1>
+      </a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="add.html">Apply for Loan</a>
+        <a href="calculator.html" class="active">Calculator</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="history.html">History</a>
+        <a href="profile.html">Profile</a>
+        <a href="reports.html">Reports</a>
+        <a href="settings.html">Settings</a>
+        <a href="help.html">Help</a>
+        <a href="signin.html">Sign In</a>
+        <a href="signup.html">Sign Up</a>
+      </nav>
+      <div class="header-actions">
+        <button class="btn-primary" onclick="window.location.href='add.html'">
+          <i class="fas fa-plus"></i> New Loan
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <section class="page-header calculator-hero">
+    <div class="container">
+      <div class="page-header-content">
+        <div class="hero-badge">
+          <i class="fas fa-calculator"></i>
+          <span>Advanced Calculator</span>
+        </div>
+        <h1>Loan Payment Calculator</h1>
+        <p>Calculate monthly payments, interest rates, and amortization schedules with precision. Make informed financial decisions with our professional loan calculator.</p>
+        <div class="calculator-features">
+          <div class="feature">
+            <i class="fas fa-bolt"></i>
+            <span>Instant Results</span>
+          </div>
+          <div class="feature">
+            <i class="fas fa-chart-line"></i>
+            <span>Detailed Analysis</span>
+          </div>
+          <div class="feature">
+            <i class="fas fa-file-export"></i>
+            <span>Export Reports</span>
+          </div>
+        </div>
+        <div class="breadcrumb">
+          <a href="index.html">Home</a> <i class="fas fa-chevron-right"></i> <span>Calculator</span>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="calculator-preview">
+          <div class="preview-screen">
+            <div class="screen-header">
+              <div class="screen-dots">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <div class="screen-title">Loan Calculator</div>
+            </div>
+            <div class="screen-content">
+              <div class="calc-input-group">
+                <label>Loan Amount</label>
+                <div class="calc-input">$250,000</div>
+              </div>
+              <div class="calc-input-group">
+                <label>Interest Rate</label>
+                <div class="calc-input">4.5%</div>
+              </div>
+              <div class="calc-input-group">
+                <label>Loan Term</label>
+                <div class="calc-input">30 Years</div>
+              </div>
+              <div class="calc-result">
+                <div class="result-label">Monthly Payment</div>
+                <div class="result-value">$1,266.71</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Calculator Content -->
+  <main class="main-content">
+    <div class="container">
+      <div class="calculator-container">
+        <!-- Loan Calculator Form -->
+        <div class="calculator-card">
+          <div class="card-header">
+            <div class="card-icon">
+              <i class="fas fa-calculator"></i>
+            </div>
+            <div>
+              <h2>Loan Payment Calculator</h2>
+              <p>Calculate monthly payments and total interest</p>
+            </div>
+          </div>
+
+          <div class="calculator-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="calc-amount">
+                  <i class="fas fa-dollar-sign"></i> Loan Amount *
+                </label>
+                <input type="number" id="calc-amount" placeholder="Enter loan amount" min="1" step="0.01">
+              </div>
+              <div class="form-group">
+                <label for="calc-rate">
+                  <i class="fas fa-percent"></i> Interest Rate (%) *
+                </label>
+                <input type="number" id="calc-rate" placeholder="Enter interest rate" min="0" step="0.01">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="calc-term">
+                  <i class="fas fa-calendar"></i> Loan Term (Months) *
+                </label>
+                <input type="number" id="calc-term" placeholder="Enter term in months" min="1">
+              </div>
+              <div class="form-group">
+                <label for="calc-start-date">
+                  <i class="fas fa-calendar-day"></i> Start Date
+                </label>
+                <input type="date" id="calc-start-date">
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button class="btn-primary" onclick="calculateLoan()">
+                <i class="fas fa-calculator"></i> Calculate
+              </button>
+              <button class="btn-secondary" onclick="resetCalculator()">
+                <i class="fas fa-redo"></i> Reset
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Results Section -->
+        <div id="results-section" class="results-section" style="display: none;">
+          <div class="results-card">
+            <div class="card-header">
+              <div class="card-icon">
+                <i class="fas fa-chart-line"></i>
+              </div>
+              <div>
+                <h2>Calculation Results</h2>
+                <p>Your loan payment breakdown</p>
+              </div>
+            </div>
+
+            <div class="results-grid">
+              <div class="result-item">
+                <div class="result-icon">
+                  <i class="fas fa-dollar-sign"></i>
+                </div>
+                <div class="result-content">
+                  <h3 id="monthly-payment">$0.00</h3>
+                  <p>Monthly Payment</p>
+                </div>
+              </div>
+
+              <div class="result-item">
+                <div class="result-icon">
+                  <i class="fas fa-money-bill-wave"></i>
+                </div>
+                <div class="result-content">
+                  <h3 id="total-interest">$0.00</h3>
+                  <p>Total Interest</p>
+                </div>
+              </div>
+
+              <div class="result-item">
+                <div class="result-icon">
+                  <i class="fas fa-balance-scale"></i>
+                </div>
+                <div class="result-content">
+                  <h3 id="total-amount">$0.00</h3>
+                  <p>Total Amount</p>
+                </div>
+              </div>
+
+              <div class="result-item">
+                <div class="result-icon">
+                  <i class="fas fa-calendar-alt"></i>
+                </div>
+                <div class="result-content">
+                  <h3 id="payoff-date">N/A</h3>
+                  <p>Payoff Date</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="action-buttons">
+              <button class="btn-primary" onclick="createLoanFromCalc()">
+                <i class="fas fa-plus"></i> Create Loan from Calculation
+              </button>
+              <button class="btn-secondary" onclick="showAmortization()">
+                <i class="fas fa-table"></i> View Amortization Schedule
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Amortization Schedule -->
+        <div id="amortization-section" class="amortization-section" style="display: none;">
+          <div class="schedule-card">
+            <div class="card-header">
+              <div class="card-icon">
+                <i class="fas fa-table"></i>
+              </div>
+              <div>
+                <h2>Amortization Schedule</h2>
+                <p>Detailed payment breakdown</p>
+              </div>
+            </div>
+
+            <div class="schedule-controls">
+              <button class="btn-secondary" onclick="exportSchedule()">
+                <i class="fas fa-download"></i> Export Schedule
+              </button>
+            </div>
+
+            <div class="schedule-table-container">
+              <table id="amortization-table" class="schedule-table">
+                <thead>
+                  <tr>
+                    <th>Payment #</th>
+                    <th>Date</th>
+                    <th>Payment</th>
+                    <th>Principal</th>
+                    <th>Interest</th>
+                    <th>Balance</th>
+                  </tr>
+                </thead>
+                <tbody id="schedule-body">
+                  <!-- Schedule will be populated here -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-logo">
+            <i class="fas fa-university"></i>
+            <h3>Amandeep Loans</h3>
+          </div>
+          <p>Professional loan management solutions for individuals and businesses. Secure, reliable, and user-friendly.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-logo">
+            <i class="fas fa-university"></i>
+            <h3>Amandeep Loans</h3>
+          </div>
+          <p>Professional loan management solutions for individuals and businesses. Secure, reliable, and user-friendly financial tools.</p>
+          <div class="contact-info">
+            <div class="contact-item">
+              <i class="fas fa-phone"></i>
+              <span>+1 (555) 123-4567</span>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-envelope"></i>
+              <span>support@amandeeoloans.com</span>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>123 Finance Street, NY 10001</span>
+            </div>
+          </div>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h4>Products & Services</h4>
+          <ul>
+            <li><a href="add.html">Personal Loans</a></li>
+            <li><a href="add.html">Business Loans</a></li>
+            <li><a href="calculator.html">Loan Calculator</a></li>
+            <li><a href="dashboard.html">Payment Tracker</a></li>
+            <li><a href="reports.html">Financial Reports</a></li>
+            <li><a href="settings.html">Account Settings</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Support & Resources</h4>
+          <ul>
+            <li><a href="help.html">Help Center</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="profile.html">User Profile</a></li>
+            <li><a href="history.html">Transaction History</a></li>
+            <li><a href="#features">Features Guide</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Legal & Security</h4>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Security Center</a></li>
+            <li><a href="#">Compliance</a></li>
+            <li><a href="#">Cookie Policy</a></li>
+            <li><a href="#">GDPR Compliance</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-badges">
+          <span class="badge-modern"><i class="fas fa-shield-alt"></i> SSL Secured</span>
+          <span class="badge-modern"><i class="fas fa-lock"></i> Bank-Level Security</span>
+          <span class="badge-modern"><i class="fas fa-award"></i> Trusted by 10,000+ Users</span>
+        </div>
+        <div class="footer-copyright">
+          <p>&copy; 2026 Amandeep Loans. All rights reserved. | Made with <i class="fas fa-heart text-gradient"></i> for financial excellence</p>
+          <div class="footer-links">
+            <a href="#">Sitemap</a> |
+            <a href="#">Accessibility</a> |
+            <a href="#">Careers</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div id="notification" class="notification"></div>
+  <script src="calculator.js"></script>
+</body>
+</html>
