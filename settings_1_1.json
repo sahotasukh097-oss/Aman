@@ -1,0 +1,6 @@
+{
+  "currency": "USD",
+  "dateFormat": "MM/DD/YYYY",
+  "notifications": true,
+  "autoBackup": true
+}
